@@ -1,0 +1,43 @@
+{
+  "type": "dir",
+  "name": "home",
+  "children": [
+    {
+      "type": "file",
+      "name": "README.txt",
+      "content": "Salut 👋 je suis Pierre. Bienvenue dans mon portfolio en mode terminal.\nTapez 'ls' pour explorer."
+    },
+    {
+      "type": "dir",
+      "name": "projects",
+      "children": [
+        {
+          "type": "file",
+          "name": "README.md",
+          "content": "# Projets\nVoici quelques projets récents. Tapez 'ls' pour les voir."
+        },
+        {
+          "type": "file",
+          "name": "site.txt",
+          "content": "Projet: Portfolio Web Terminal\nTech: HTML, CSS, JS"
+        },
+        {
+          "type": "file",
+          "name": "api.txt",
+          "content": "Projet: API REST\nTech: Laravel, MySQL"
+        }
+      ]
+    },
+    {
+      "type": "dir",
+      "name": "contact",
+      "children": [
+        {
+          "type": "file",
+          "name": "README.md",
+          "content": "# Contact\n📧 Email : pierre@example.com\n🔗 LinkedIn : linkedin.com/in/pierre"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+:root {
+  --main-color-text: #fff;
+  --color-indigo-600: #4338ca;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.uperluet {
+  color: var(--color-indigo-600);
+}
+
+nav {
+  background-color: white;
+  padding: 1%;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #e6e6e6;
+  box-shadow: 0px 10px 50px 24px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav .logo img {
+  width: 60%;
+}
+.nav .nav-links {
+  display: flex;
+  gap: 2%;
+}
+.nav .nav-links a {
+  text-decoration: none;
+  color: #333;
+  transition: all 0.2s ease;
+}
+.nav .nav-links a:hover {
+  color: #4338ca;
+}
+
+header {
+  background: linear-gradient(rgba(67, 56, 202, 0.7), rgba(67, 56, 202, 0.9)), url("https://static.vecteezy.com/system/resources/previews/007/045/965/non_2x/abstract-white-and-grey-pattern-background-design-abstract-graphic-design-white-and-grey-banner-pattern-background-web-template-abstract-white-wallpaper-abstract-white-background-free-vector.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--main-color-text);
+  text-align: center;
+}
+header p:first-child {
+  margin-bottom: 1%;
+}
+header p {
+  line-height: 2.5rem;
+  font-size: 1.3rem;
+}
+header h1 {
+  font-size: 6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 2%;
+}
+header .arrow {
+  margin-top: 5%;
+}
+header .arrow .line {
+  background-color: var(--main-color-text);
+  color: var(--color-indigo-600);
+  padding: 1%;
+  border-radius: 50%;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1400px;
+}
+
+.icon {
+  padding: 2%;
+  width: 10%;
+  height: 10%;
+  border-radius: 100%;
+}
+
+section:first-child {
+  background-color: var(--main-color-text);
+  line-height: 2rem;
+  border-radius: 5px;
+  margin-top: -3%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  box-shadow: 0px 10px 50px -24px rgba(0, 0, 0, 0.1);
+}
+section:first-child .card {
+  border-right: 1px solid #e6e6e6;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+section:first-child .card p {
+  font-size: 1.2rem;
+}
+section:first-child .card h3 {
+  margin-top: 2%;
+  margin-bottom: 3%;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+section:first-child .card h4 {
+  margin-bottom: 2%;
+  margin-top: 10%;
+  font-weight: 800;
+  color: var(--color-indigo-600);
+}
+section:first-child .card:last-child {
+  border-right: none;
+}
+
+.project {
+  background-color: #f7f7f7;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+.project h2 {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 5%;
+}
+.project .cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+.project .cards .card-item {
+  padding: 5%;
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+.project .cards .card-item .card-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.project .cards .card-item .card-item-header h3 {
+  font-weight: 900;
+  margin-bottom: 3%;
+}
+.project .cards .card-item .card-item-header .icon-code {
+  color: var(--color-indigo-600);
+  font-weight: 900;
+  font-size: 0.8rem;
+}/*# sourceMappingURL=app.css.map */
