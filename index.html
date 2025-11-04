@@ -1,211 +1,219 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noël Pierre - Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin="crossorigin"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link href="assets/css/reset.css" type="text/css" rel="stylesheet" />
+    <title>Portfolio - Responsive</title>
     <link href="assets/css/app.css" type="text/css" rel="stylesheet" />
   </head>
   <body>
+    <!-- Navigation -->
     <nav>
-      <div class="container nav">
-        <div class="logo">
-          <a href="#">
-            <img src="assets/img/logo.png" alt="logo" class="logo" />
-          </a>
+      <div class="container">
+        <div class="logo">CODEFORGE</div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="nav-links">
-          <a href="#">Home</a>
-          <a href="#">Skills</a>
-          <a href="#">Projects</a>
-          <a href="#">Experiences</a>
-          <a href="#">Contact</a>
+        <div class="nav-links" id="navLinks">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
         </div>
       </div>
     </nav>
 
-    <header>
-      <!--section 1 -->
+    <!-- Hero -->
+    <section class="hero" id="about">
       <div class="container">
-        <p>Hi, I am Pierre</p>
-        <h1>Web Developer <br />& Web Trainer</h1>
-        <p>
-          Since beginning my journey as a backend developer and web trainer,
-        </p>
-        <p>
-          I’ve built and maintained applications, led projects, and guided
-          people on their path to becoming web developers.
-        </p>
-        <p>
-          As a developer, I enjoy turning ideas into clean, efficient code and
-          solving real-world problems through technology.
-        </p>
-        <div class="arrow">
-          <a href="#">
-            <svg
-              class="line"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-move-down-icon lucide-move-down"
-            >
-              <path d="M8 18L12 22L16 18" />
-              <path d="M12 2V22" /></svg
-          ></a>
+        <div class="hero-content">
+          <h1>Backend Developer</h1>
+          <p>
+            Building scalable and high-performance backend systems while
+            ensuring clean and intuitive front-end design.
+          </p>
+        </div>
+        <div class="scroll-indicator">Scroll</div>
+      </div>
+    </section>
+
+    <!-- Compétences -->
+    <section id="skills">
+      <div class="container">
+        <span class="section-number">01 / Skills</span>
+        <h2>Expertise</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <h3>Backend Development</h3>
+            <p>PHP, Laravel, C#, .net</p>
+          </div>
+          <div class="skill-item">
+            <h3>Database Design</h3>
+            <p>PostgreSQL, MongoDB</p>
+          </div>
+          <div class="skill-item">
+            <h3>API Architecture</h3>
+            <p>REST, WebSocket</p>
+          </div>
+          <div class="skill-item">
+            <h3>DevOps & Cloud</h3>
+            <p>Docker, CI/CD</p>
+          </div>
+          <div class="skill-item">
+            <h3>Frontend Skills</h3>
+            <p>HTML, CSS, JavaScript</p>
+          </div>
+          <div class="skill-item">
+            <h3>Tools & Systems</h3>
+            <p>Git, Linux, Nginx</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- section 1 - end -->
-    </header>
-
-    <main>
-      <section class="container">
-        <div class="card">
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-database-icon lucide-database"
-          >
-            <ellipse cx="12" cy="5" rx="9" ry="3" />
-            <path d="M3 5V19A9 3 0 0 0 21 19V5" />
-            <path d="M3 12A9 3 0 0 0 21 12" />
-          </svg>
-          <h3>Backend Developement</h3>
-          <p>
-            I build secure and scalable applications with clean, efficient code.
-          </p>
-          <h4>Skills</h4>
-          <p>PHP, Laravel, Symfony, .Net, ASP.net, MySQL, Bash, Git</p>
-        </div>
-        <div class="card">
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-code-icon lucide-code"
-          >
-            <path d="m16 18 6-6-6-6" />
-            <path d="m8 6-6 6 6 6" />
-          </svg>
-          <h3>Front-end Developement</h3>
-          <p>
-            I design responsive, user-friendly interfaces for seamless
-            experiences.
-          </p>
-          <h4>Skills</h4>
-          <p>HTML, CSS, SCSS, UX, UI, Vue.js</p>
-        </div>
-        <div class="card">
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="lucide lucide-users-icon lucide-users"
-          >
-            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-            <path d="M16 3.128a4 4 0 0 1 0 7.744" />
-            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-            <circle cx="9" cy="7" r="4" />
-          </svg>
-          <h3>Former</h3>
-          <p>I guide and mentor people to become confident web developers.</p>
-          <h4>Skills</h4>
-          <p>
-            Teaching, Mentoring, Curriculum Design, Code Reviews, Agile
-            Practices, Pair Programming, Workshop Facilitation
-          </p>
-        </div>
-      </section>
-
-      <section class="project">
-        <div class="container">
-          <h2 class="font-4 bold uppercase">
-            Experiments<span class="uperluet"> &</span> <br />Learning Projects
-          </h2>
-          <div class="cards">
-            <div class="card-item">
-              <div class="card-item-header">
-                <h3>PHP: OOP Router Package</h3>
-                <div class="icon-code">php</div>
+    <!-- Projets -->
+    <section id="projects">
+      <div class="container">
+        <span class="section-number">02 / Projects</span>
+        <h2>Selected Work</h2>
+        <div class="projects-list">
+          <div class="project-item">
+            <div class="project-number">01</div>
+            <div class="project-content">
+              <h3>Hello Bulletin</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Architecture microservices pour une plateforme de commerce
+                électronique gérant des milliers de transactions par seconde.
+              </p>
+              <div class="tags">
+                <span class="tag">Laravel</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">JavaScript</span>
               </div>
             </div>
-
-            <div class="card-item">
-              <div class="card-item-header">
-                <h3>E-Commerce</h3>
-                <div class="icon-code">php</div>
+          </div>
+          <div class="project-item">
+            <div class="project-number">02</div>
+            <div class="project-content">
+              <h3>Real-time Analytics Dashboard</h3>
+              <p>
+                Sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Plateforme d'analyse de données en temps réel avec
+                visualisation interactive.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">Redis</span>
+                <span class="tag">WebSocket</span>
               </div>
             </div>
-
-            <div class="card-item">
-              <div class="card-item-header">
-                <h3>Weather App</h3>
-                <div class="icon-code">js</div>
+          </div>
+          <div class="project-item">
+            <div class="project-number">03</div>
+            <div class="project-content">
+              <h3>Messaging System</h3>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                Application de messagerie instantanée avec chiffrement
+                end-to-end.
+              </p>
+              <div class="tags">
+                <span class="tag">WebSocket</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">React</span>
+                <span class="tag">MongoDB</span>
               </div>
             </div>
-
-            <div class="card-item">
-              <div class="card-item-header">
-                <h3>ux23</h3>
-                <div class="icon-code">c</div>
-              </div>
-            </div>
-
-            <div class="card-item">
-              <div class="card-item-header">
-                <h3>Blog</h3>
-                <div class="icon-code">laravel</div>
-              </div>
-            </div>
-
-            <div class="card-item">
-              <div class="card-item-header">
-                <h3>Portfolio</h3>
-                <div class="icon-code">html-css</div>
+          </div>
+          <div class="project-item">
+            <div class="project-number">04</div>
+            <div class="project-content">
+              <h3>Headless CMS</h3>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit.
+                Système de gestion de contenu découplé avec API GraphQL
+                flexible.
+              </p>
+              <div class="tags">
+                <span class="tag">GraphQL</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">AWS</span>
+                <span class="tag">Docker</span>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="contact-content">
+          <span class="section-number">04 / Contact</span>
+          <h2>Let's Connect</h2>
+          <div class="contact-icons">
+            <a
+              href="https://github.com/pierrenoel"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/pierrenoël"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+            <a href="mailto:pierrenoel1509@gmail.com" aria-label="Email">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>© 2025 Portfolio • Designed & Developed</p>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="assets/js/app.js"></script>
   </body>
 </html>

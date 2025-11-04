@@ -1,61 +1,69 @@
-let terminal = document.querySelector("#terminal");
-let input = document.querySelector(".input");
-let inputs = document.querySelector("#inputs");
-input.innerText = `user@ubuntu ~ $ `;
+// Menu Hamburger
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+const links = navLinks.querySelectorAll("a");
 
-let inputStr = "";
-let entries = [];
-
-let display = () => {
-  inputs.innerHTML = entries.join("<br/><br/>");
-  input.innerText = `user@ubuntu ~ $ ${inputStr}`;
-};
-
-let commands = ["cd", "ls", "help", "clear"];
-
-let split = (string) => string.split(" ");
-
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    let command = inputStr.trim().toLocaleLowerCase();
-    entries.push(`user@ubuntu ~ $ ${inputStr}`);
-
-    if (command === "clear") entries = [];
-
-    switch (split(command)[0]) {
-      case "help":
-        entries.push("Commandes disponibles: " + commands.join(", "));
-        break;
-
-      case "cd":
-        entries.push("cd: changement de répertoire (simulation)");
-        break;
-
-      case "ls":
-        entries.push("ls: exemple de commande perso");
-        break;
-
-      case "clear":
-        entries = [];
-        break;
-
-      default:
-        entries.push(`Commande introuvable: ${split(command)[0]}`);
-    }
-
-    inputStr = "";
-    display();
-  } else if (e.key.length === 1) {
-    inputStr += e.key;
-    display();
-  } else if (e.key === "Backspace") {
-    inputStr = inputStr.slice(0, -1);
-    display();
-  }
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navLinks.classList.toggle("active");
+  document.body.style.overflow = navLinks.classList.contains("active")
+    ? "hidden"
+    : "auto";
 });
 
-// exemple lire un fichier json
+// Fermer le menu au clic sur un lien
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navLinks.classList.remove("active");
+    document.body.style.overflow = "auto";
+  });
+});
 
-const line = document.querySelector(".line")
+// Smooth scroll personnalisé
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      const targetPosition =
+        target.getBoundingClientRect().top + window.pageYOffset;
+      const startPosition = window.pageYOffset;
+      const distance = targetPosition - startPosition;
+      const duration = 1500; // Durée en ms (1.5 secondes)
+      let start = null;
 
+      function easeInOutCubic(t) {
+        return t < 0.5
+          ? 4 * t * t * t
+          : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+      }
 
+      function animation(currentTime) {
+        if (start === null) start = currentTime;
+        const timeElapsed = currentTime - start;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
+
+        window.scrollTo(0, startPosition + distance * ease);
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        }
+      }
+
+      requestAnimationFrame(animation);
+    }
+  });
+});
+
+// Parallax scroll effect (desktop only)
+if (window.innerWidth > 768) {
+  window.addEventListener("scroll", () => {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector(".hero-content");
+    if (parallax) {
+      parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
+  });
+}
