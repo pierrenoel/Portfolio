@@ -30,16 +30,12 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         target.getBoundingClientRect().top + window.pageYOffset;
       const startPosition = window.pageYOffset;
       const distance = targetPosition - startPosition;
-      const duration = 1500; // Durée en ms (1.5 secondes)
+      const duration = 1500;
       let start = null;
 
-      function easeInOutCubic(t) {
-        return t < 0.5
-          ? 4 * t * t * t
-          : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-      }
+      const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
 
-      function animation(currentTime) {
+      const animation = (currentTime) => {
         if (start === null) start = currentTime;
         const timeElapsed = currentTime - start;
         const progress = Math.min(timeElapsed / duration, 1);
@@ -47,9 +43,8 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 
         window.scrollTo(0, startPosition + distance * ease);
 
-        if (timeElapsed < duration) {
-          requestAnimationFrame(animation);
-        }
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+        
       }
 
       requestAnimationFrame(animation);
@@ -62,8 +57,6 @@ if (window.innerWidth > 768) {
   window.addEventListener("scroll", () => {
     const scrolled = window.pageYOffset;
     const parallax = document.querySelector(".hero-content");
-    if (parallax) {
-      parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
+    if (parallax) parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
   });
 }
