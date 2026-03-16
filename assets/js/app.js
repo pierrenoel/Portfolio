@@ -1,62 +1,52 @@
-// Menu Hamburger
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
-const links = navLinks.querySelectorAll("a");
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.getElementById("main-nav");
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("nav-links");
+  let lastScrollY = window.scrollY;
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-  navLinks.classList.toggle("active");
-  document.body.style.overflow = navLinks.classList.contains("active")
-    ? "hidden"
-    : "auto";
-});
-
-// Fermer le menu au clic sur un lien
-links.forEach((link) => {
-  link.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navLinks.classList.remove("active");
-    document.body.style.overflow = "auto";
-  });
-});
-
-// Smooth scroll personnalisé
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      const targetPosition =
-        target.getBoundingClientRect().top + window.pageYOffset;
-      const startPosition = window.pageYOffset;
-      const distance = targetPosition - startPosition;
-      const duration = 1500;
-      let start = null;
-
-      const easeInOutCubic = (t) => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-
-      const animation = (currentTime) => {
-        if (start === null) start = currentTime;
-        const timeElapsed = currentTime - start;
-        const progress = Math.min(timeElapsed / duration, 1);
-        const ease = easeInOutCubic(progress);
-
-        window.scrollTo(0, startPosition + distance * ease);
-
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-        
-      }
-
-      requestAnimationFrame(animation);
-    }
-  });
-});
-
-// Parallax scroll effect (desktop only)
-if (window.innerWidth > 768) {
   window.addEventListener("scroll", () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector(".hero-content");
-    if (parallax) parallax.style.transform = `translateY(${scrolled * 0.3}px)`;
+    if (window.scrollY > lastScrollY && window.scrollY > 100)
+      nav.style.transform = "translateY(-100%)";
+    else nav.style.transform = "translateY(0)";
+    lastScrollY = window.scrollY;
   });
-}
+
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    const spans = hamburger.querySelectorAll("span");
+    navLinks.classList.contains("active")
+      ? ((spans[0].style.transform = "rotate(45deg) translateY(7px)"),
+        (spans[1].style.transform = "rotate(-45deg) translateY(-7px)"))
+      : ((spans[0].style.transform = "none"),
+        (spans[1].style.transform = "none"));
+  });
+
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      const spans = hamburger.querySelectorAll("span");
+      spans[0].style.transform = "none";
+      spans[1].style.transform = "none";
+    });
+  });
+
+  // Reveal Animation on Scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  document.querySelectorAll("section").forEach((el) => {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "all 0.8s ease-out";
+    observer.observe(el);
+  });
+});
