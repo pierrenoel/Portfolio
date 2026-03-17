@@ -3,239 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lesson: Dependency Injection | CodeForge</title>
+    <title></title>
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/img/apple-touch-icon.png"
     />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/img/site.webmanifest" />
     <link href="assets/css/app.css" type="text/css" rel="stylesheet" />
-    <style>
-      /* --- Lesson Page Layout --- */
-      .lesson-page {
-        background: #050505; /* Un poil plus clair pour différencier de la home */
-        padding-top: 0;
-      }
-
-      .lesson-nav {
-        height: 60px;
-        border-bottom: 1px solid var(--border);
-        background: rgba(3, 3, 3, 0.8);
-        backdrop-filter: blur(10px);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .lesson-nav-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 2rem;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .back-home {
-        color: var(--text-dim);
-        text-decoration: none;
-        font-size: 0.8rem;
-      }
-      .lesson-title {
-        font-weight: 700;
-        font-size: 0.9rem;
-      }
-      .progress-info {
-        color: var(--accent);
-        font-size: 0.8rem;
-        font-weight: 600;
-      }
-
-      /* Layout Main */
-      .lesson-layout {
-        display: grid;
-        grid-template-columns: 300px 1fr;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      /* Sidebar */
-      .lesson-sidebar {
-        height: calc(100vh - 60px);
-        position: sticky;
-        top: 60px;
-        border-right: 1px solid var(--border);
-        padding: 2rem;
-        overflow-y: auto;
-      }
-
-      .sidebar-section h4 {
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        color: var(--text-dim);
-        margin: 2rem 0 1rem;
-      }
-
-      .sidebar-link {
-        display: block;
-        color: var(--text);
-        text-decoration: none;
-        font-size: 0.9rem;
-        margin-bottom: 0.8rem;
-        opacity: 0.6;
-        transition: 0.3s;
-      }
-
-      .sidebar-link.active,
-      .sidebar-link:hover {
-        opacity: 1;
-        color: var(--accent);
-      }
-
-      /* Content Area */
-      .lesson-content {
-        padding: 4rem 10% 8rem;
-        max-width: 900px;
-      }
-
-      .content-header h1 {
-        font-size: 3rem;
-        margin: 1rem 0 3rem;
-        letter-spacing: -2px;
-      }
-
-      .breadcrumb {
-        font-size: 0.8rem;
-        color: var(--accent);
-        font-weight: 600;
-      }
-
-      /* Typography for reading */
-      .prose p {
-        font-size: 1.1rem;
-        line-height: 1.8;
-        color: #ccc;
-        margin-bottom: 1.5rem;
-      }
-
-      .prose h3 {
-        margin: 3rem 0 1.5rem;
-        font-size: 1.8rem;
-      }
-
-      /* Code Blocks */
-      .code-block {
-        background: #0f0f0f;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        margin: 2rem 0;
-        font-family: "JetBrains Mono", monospace;
-      }
-
-      .code-header {
-        padding: 0.5rem 1rem;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.7rem;
-        color: var(--text-dim);
-      }
-
-      pre {
-        padding: 1.5rem;
-        overflow-x: auto;
-        color: var(--accent);
-      }
-
-      /* Note Box */
-      .info-note {
-        background: rgba(0, 255, 136, 0.05);
-        border-left: 3px solid var(--accent);
-        padding: 1.5rem;
-        border-radius: 0 8px 8px 0;
-        margin: 2rem 0;
-      }
-
-      .lesson-footer {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 5rem;
-        padding-top: 2rem;
-        border-top: 1px solid var(--border);
-      }
-
-      /* --- Responsive --- */
-      @media (max-width: 1000px) {
-        .lesson-layout {
-          grid-template-columns: 1fr;
-        }
-        .lesson-sidebar {
-          display: none;
-        } /* On cache la sidebar sur mobile pour le focus */
-      }
-    </style>
+    <link href="assets/css/lesson.css" type="text/css" rel="stylesheet" />
   </head>
-  <body class="lesson-page">
+  <body>
     <nav class="lesson-nav">
       <div class="lesson-nav-container">
-        <a href="../index.html" class="back-home">← Back to Hub</a>
-        <div class="lesson-title">Mastering Laravel Architecture</div>
-        <div class="progress-info">45% Completed</div>
+        <a href="../index.html" class="back-home">← Back to Home</a>
+
+        <button class="menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="lesson-title"></div>
       </div>
     </nav>
-
     <div class="lesson-layout">
-      <aside class="lesson-sidebar">
-        <div class="sidebar-section">
-          <h4>01. Introduction</h4>
-          <a href="#" class="sidebar-link">Course Overview</a>
-          <a href="#" class="sidebar-link active">Environment Setup</a>
-        </div>
-        <div class="sidebar-section">
-          <h4>02. Core Concepts</h4>
-          <a href="#" class="sidebar-link">Service Container</a>
-          <a href="#" class="sidebar-link">Dependency Injection</a>
-          <a href="#" class="sidebar-link">Service Providers</a>
-        </div>
-      </aside>
+      <aside class="lesson-sidebar"></aside>
 
       <article class="lesson-content">
         <header class="content-header">
-          <span class="breadcrumb">Core Concepts > Dependency Injection</span>
-          <h1>Dependency Injection in Laravel 11</h1>
+          <h1 class="main-title"></h1>
         </header>
 
-        <section class="prose">
-          <p>
-            Dependency injection is a procedure where one object supplies the
-            dependencies of another object. In Laravel, this is handled
-            automatically by the <strong>Service Container</strong>.
-          </p>
-
-          <h3>Practical Example</h3>
-          <p>
-            Instead of hardcoding a service inside your controller, you
-            type-hint it in the constructor:
-          </p>
-
-          <div class="code-block">
-            <div class="code-header"><span>UserController.php</span></div>
-            <pre><code>
-public function __construct(
-    protected UserRepository $users
-) {}
-                    </code></pre>
-          </div>
-
-          <div class="info-note">
-            <strong>Note:</strong> Always favor interface type-hinting to keep
-            your code decoupled and testable.
-          </div>
-        </section>
+        <section class="prose"></section>
 
         <footer class="lesson-footer">
-          <a href="#" class="btn-secondary">Previous Lesson</a>
-          <a href="#" class="btn-primary">Next: Service Providers →</a>
+          <p>codeforge.be all right reserved - 2026</p>
         </footer>
       </article>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script type="text/javascript" src="assets/js/readme.js"></script>
   </body>
 </html>

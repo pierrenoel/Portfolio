@@ -1,0 +1,181 @@
+body {
+  background: #050505;
+  color: var(--text);
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  /* --- NAVIGATION --- */
+  .lesson-nav {
+    height: 60px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(3, 3, 3, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    .lesson-nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      /* Bouton Menu (Visible uniquement sur mobile) */
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+
+        span {
+          width: 22px;
+          height: 2px;
+          background: var(--text);
+          transition: 0.3s;
+        }
+      }
+
+      .back-home {
+        color: var(--text-dim);
+        text-decoration: none;
+        font-size: 0.8rem;
+      }
+
+      .lesson-title {
+        font-weight: 700;
+        font-size: 0.85rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0 10px;
+      }
+    }
+  }
+
+  /* --- LAYOUT PRINCIPAL --- */
+  .lesson-layout {
+    display: grid;
+    grid-template-columns: 1fr; 
+    margin: 0 auto;
+    position: relative;
+
+    /* SIDEBAR (Mode Tiroir sur mobile) */
+    .lesson-sidebar {
+      position: fixed;
+      top: 60px;
+      left: -100%; 
+      width: 280px;
+      height: calc(100vh - 60px);
+      background: #050505;
+      z-index: 99;
+      transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-right: 1px solid var(--border);
+      padding: 2rem;
+      overflow-y: auto;
+
+      /* Classe activée par le JS */
+      &.active {
+        left: 0;
+      }
+
+      .sidebar-section h4 {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        margin: 2rem 0 1rem;
+      }
+
+      .sidebar-link {
+        display: block;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        opacity: 0.6;
+        transition: 0.3s;
+
+        &.active,
+        &:hover {
+          opacity: 1;
+          color: var(--accent);
+        }
+      }
+    }
+
+    /* ZONE DE CONTENU */
+    .lesson-content {
+      padding: 2rem 1.5rem 5rem;
+      width: 100%;
+      box-sizing: border-box;
+
+      .content-header h1 {
+        font-size: 2.2rem;
+        margin: 1rem 0 2rem;
+        letter-spacing: -1px;
+      }
+
+      .prose {
+        p {
+          line-height: 1.8;
+          font-size: 1.05rem;
+          color: #ccc;
+          margin-bottom: 1.5rem;
+        }
+
+        pre {
+          background: rgba(15, 15, 15, 0.6) !important;
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 1.5rem;
+          margin: 2rem 0;
+          overflow-x: auto;
+        }
+      }
+    }
+  }
+
+  .lesson-footer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    padding: 3rem 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* --- LOGIQUE DESKTOP (Écrans larges) --- */
+@media (min-width: 1024px) {
+  body {
+    .lesson-nav .lesson-nav-container .menu-toggle {
+      display: none; 
+    }
+
+    .lesson-layout {
+      grid-template-columns: 300px 1fr; 
+      max-width: 1400px;
+
+      .lesson-sidebar {
+        position: sticky; 
+        top: 60px;
+        left: 0;
+        width: auto;
+        height: calc(100vh - 60px);
+        border-right: 1px solid var(--border);
+      }
+
+      .lesson-content {
+        padding: 4rem 10% 8rem;
+
+        .content-header h1 {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
+}
