@@ -2,7 +2,7 @@
 
 Hey! Welcome to my own portfolio!
 
-![](Portfolio.jpg)
+![](Portfolio.png)
 
 ## Contact
 
